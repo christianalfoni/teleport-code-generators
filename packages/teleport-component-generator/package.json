@@ -1,6 +1,6 @@
 {
   "name": "@teleporthq/teleport-component-generator",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Generic component generator that can be used together with plugins, mappings and post processing functions",
   "author": "teleportHQ",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
-    "@teleporthq/teleport-generator-shared": "^0.6.0",
-    "@teleporthq/teleport-generator-core": "^0.6.0"
+    "@teleporthq/teleport-generator-core": "^0.7.0",
+    "@teleporthq/teleport-generator-shared": "^0.7.0"
   }
 }

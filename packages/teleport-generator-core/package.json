@@ -1,6 +1,6 @@
 {
   "name": "@teleporthq/teleport-generator-core",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "The core components of a component/project generator",
   "author": "teleportHQ",
   "license": "MIT",
@@ -22,10 +22,10 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
-    "@teleporthq/teleport-generator-shared": "^0.6.0",
-    "ajv": "^6.10.0",
     "@babel/generator": "^7.4.0",
     "@babel/types": "^7.3.3",
-    "@starptech/prettyhtml-hast-to-html": "^0.8.17"
+    "@starptech/prettyhtml-hast-to-html": "^0.8.17",
+    "@teleporthq/teleport-generator-shared": "^0.7.0",
+    "ajv": "^6.10.0"
   }
 }

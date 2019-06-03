@@ -1,6 +1,6 @@
 {
   "name": "@teleporthq/teleport-plugin-react-styled-jsx",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A plugin for injecting the styles as a styled-jsx tag inside React components",
   "author": "teleportHQ",
   "license": "MIT",
@@ -22,6 +22,6 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
-    "@teleporthq/teleport-generator-shared": "^0.6.0"
+    "@teleporthq/teleport-generator-shared": "^0.7.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@teleporthq/teleport-plugin-import-statements",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A plugin for handling import statements in JavaScript code",
   "author": "teleportHQ",
   "license": "MIT",
@@ -22,6 +22,6 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
-    "@teleporthq/teleport-generator-shared": "^0.6.0"
+    "@teleporthq/teleport-generator-shared": "^0.7.0"
   }
 }

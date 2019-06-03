@@ -1,6 +1,6 @@
 {
   "name": "@teleporthq/teleport-plugin-vue-css",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A plugin for creating the styles of a Vue component",
   "author": "teleportHQ",
   "license": "MIT",
@@ -22,6 +22,6 @@
     "build:watch": "tsc -w"
   },
   "dependencies": {
-    "@teleporthq/teleport-generator-shared": "^0.6.0"
+    "@teleporthq/teleport-generator-shared": "^0.7.0"
   }
 }
