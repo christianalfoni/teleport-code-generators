@@ -33,32 +33,49 @@ const commentItems: any[] = []
 const run = async () => {
   try {
     let result
-    // result = await packProject(projectUIDL, {
-    //   ...packerOptions,
-    //   projectType: ProjectType.REACTNATIVE,
-    // })
-    // console.info(ProjectType.REACTNATIVE, '-', result.payload)
+    result = await packProject(projectUIDL, {
+      ...packerOptions,
+      projectType: ProjectType.REACTNATIVE,
+    })
+    console.info(ProjectType.REACTNATIVE, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.REACTNATIVE, sandbox: result.payload })
 
     result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.REACT })
     console.info(ProjectType.REACT, '-', result.payload)
     commentItems.push({ flavor: ProjectType.REACT, sandbox: result.payload })
 
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.NEXT })
-    // console.info(ProjectType.NEXT, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.NUXT })
-    // console.info(ProjectType.NUXT, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.VUE })
-    // console.info(ProjectType.VUE, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.STENCIL })
-    // console.info(ProjectType.STENCIL, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.PREACT })
-    // console.info(ProjectType.PREACT, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.ANGULAR })
-    // console.info(ProjectType.ANGULAR, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.GRIDSOME })
-    // console.info(ProjectType.GRIDSOME, '-', result.payload)
-    // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.GATSBY })
-    // console.info(ProjectType.GATSBY, '-', result.payload)
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.NEXT })
+    console.info(ProjectType.NEXT, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.NEXT, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.NUXT })
+    console.info(ProjectType.NUXT, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.NUXT, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.VUE })
+    console.info(ProjectType.VUE, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.VUE, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.STENCIL })
+    console.info(ProjectType.STENCIL, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.STENCIL, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.PREACT })
+    console.info(ProjectType.PREACT, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.PREACT, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.ANGULAR })
+    console.info(ProjectType.ANGULAR, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.ANGULAR, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.GRIDSOME })
+    console.info(ProjectType.GRIDSOME, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.GRIDSOME, sandbox: result.payload })
+
+    result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.GATSBY })
+    console.info(ProjectType.GATSBY, '-', result.payload)
+    commentItems.push({ flavor: ProjectType.GATSBY, sandbox: result.payload })
+
     comment(commentItems)
   } catch (e) {
     console.info(e)

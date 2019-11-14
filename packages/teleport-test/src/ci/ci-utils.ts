@@ -7,7 +7,7 @@ export const comment = (commentItems: any[]) => {
   if (!token) {
     throw new Error('Access token required for comments on the PR')
   }
-  console.log(repo, sha, event)
+
   if (repo && sha && event === 'pull_request') {
     const issueNumber = pull_request_number ? pull_request_number : branch.split('/')[2]
     commentService(issueNumber, commentItems, token)
@@ -19,12 +19,10 @@ export const comment = (commentItems: any[]) => {
 const commentService = async (issueNumber: number, commentItems: any[], token: string) => {
   try {
     let body = ''
-    commentItems.forEach(
-      (item) => (body = `${body} ${item.flavor}-https://codesandbox.io/${item.sandbox}`)
-    )
+    commentItems.forEach((item) => (body = `${body} [${item.flavor}](${item.sandbox}) &nbsp;`))
     const url = `https://api.github.com/repos/${repo}/issues/${issueNumber}/comments`
     const data = {
-      body: body,
+      body,
     }
     const response = await fetch(url, {
       method: 'POST',
