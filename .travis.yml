@@ -3,6 +3,7 @@ node_js:
   - '11'
 script:
   - npx lerna run build
+  - npm run custom:ci  
   - npm run lint
   - npm run test:coverage
   - npm run upload:coverage
