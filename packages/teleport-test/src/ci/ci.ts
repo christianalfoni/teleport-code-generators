@@ -28,6 +28,8 @@ const packerOptions: PackerOptions = {
   ],
 }
 
+const commentItems: any[] = []
+
 const run = async () => {
   try {
     let result
@@ -39,7 +41,7 @@ const run = async () => {
 
     result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.REACT })
     console.info(ProjectType.REACT, '-', result.payload)
-    comment(ProjectType.REACTNATIVE, result.payload)
+    commentItems.push({ flavor: ProjectType.REACT, sandbox: result.payload })
 
     // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.NEXT })
     // console.info(ProjectType.NEXT, '-', result.payload)
@@ -57,6 +59,7 @@ const run = async () => {
     // console.info(ProjectType.GRIDSOME, '-', result.payload)
     // result = await packProject(projectUIDL, { ...packerOptions, projectType: ProjectType.GATSBY })
     // console.info(ProjectType.GATSBY, '-', result.payload)
+    comment(commentItems)
   } catch (e) {
     console.info(e)
   }
