@@ -110,12 +110,12 @@ if (token) {
       commentItems.push({ flavor: ProjectType.GATSBY, sandbox: result.payload })
       let body = ''
       commentItems.forEach((item) => (body = `${body} [${item.flavor}](${item.sandbox}) &nbsp;`))
-      build.pass(`Sandboxes build ${body}`)
+      build.pass(`Sandboxes build ${body}`).catch(handleError)
       // comment(commentItems)
     } catch (e) {
-      process.exit(1)
       console.info(e)
-      build.fail()
+      build.fail().catch(handleError)
+      process.exit(1)
     }
   }
 
