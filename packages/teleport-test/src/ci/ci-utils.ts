@@ -65,3 +65,32 @@ const commentService = async (issueNumber: number, commentItems: any[], token: s
     console.info('error', e)
   }
 }
+
+type STATUS = 'success' | 'error' | 'failure' | 'pending'
+
+export const addStatus = async (message: string, status: STATUS) => {
+  const token = process.env.COMMENT_USER_TOKEN
+  const url = `https://api.github.com/repos/${repo}/statuses/${sha}`
+  const data = {
+    state: status,
+    description: message,
+    context: 'ci-bot',
+  }
+  const response = fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `${token}`,
+    },
+    body: JSON.stringify(data),
+  })
+  response
+    .then((res) => res.json())
+    .then((responseJSON) => {
+      console.info(responseJSON)
+    })
+    .catch((err) => {
+      console.info(err)
+      process.exit(0)
+    })
+}

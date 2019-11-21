@@ -1,35 +1,17 @@
 // @ts-ignore
-import Build from 'github-build'
-// @ts-ignore
 import { repo, sha } from 'ci-env'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import { packProject } from '@teleporthq/teleport-code-generator'
 import { ProjectUIDL, PackerOptions, ProjectType, PublisherType } from '@teleporthq/teleport-types'
+import { addStatus } from './ci-utils'
 
 import projectJSON from '../../../../examples/uidl-samples/project.json'
 
-const label = 'teleportHQ-bot'
-const description = 'Building sandboxes'
 const token = process.env.COMMENT_USER_TOKEN
 
-const meta = {
-  repo,
-  sha,
-  token,
-  label,
-  description,
-}
-
-const build = new Build(meta)
-
-const handleError = (err: any) => {
-  console.error('Failed in adding status to github')
-  console.error(err)
-}
-
 if (token) {
-  build.start('Started Building sandboxes..').catch(handleError)
+  addStatus(`Started Building Projects`, 'pending')
   const projectUIDL = (projectJSON as unknown) as ProjectUIDL
   const assetFile = readFileSync(join(__dirname, 'asset.png'))
   const base64File = new Buffer(assetFile).toString('base64')
@@ -55,6 +37,7 @@ if (token) {
   const commentItems: any[] = []
 
   const run = async () => {
+    addStatus(`Building Sandboxes`, 'pending')
     try {
       let result
       result = await packProject(projectUIDL, {
@@ -110,16 +93,14 @@ if (token) {
       commentItems.push({ flavor: ProjectType.GATSBY, sandbox: result.payload })
       let body = ''
       commentItems.forEach((item) => (body = `${body} [${item.flavor}](${item.sandbox}) &nbsp;`))
-      build.pass(`Sandboxes build ${body}`).catch(handleError)
-      // comment(commentItems)
+      addStatus(`${body}`, 'success')
     } catch (e) {
       console.info(e)
-      build.fail().catch(handleError)
-      process.exit(1)
+      addStatus(`Failed in bulding Sandboxes`, 'failure')
     }
   }
 
   run()
 } else {
-  build.error('Unable to find token !!')
+  addStatus(`Token missing from CI`, 'error')
 }
