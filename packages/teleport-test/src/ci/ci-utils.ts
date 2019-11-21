@@ -80,7 +80,7 @@ export const addStatus = async (message: string, status: STATUS) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `${token}`,
+      Authorization: `token ${token}`,
     },
     body: JSON.stringify(data),
   })
