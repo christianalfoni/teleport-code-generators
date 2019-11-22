@@ -86,7 +86,9 @@ export const addStatus = async (message: string, status: STATUS) => {
   })
   response
     .then((res) => res.json())
-    .then((responseJSON) => {})
+    .then((responseJSON) => {
+      console.info('Status updated')
+    })
     .catch((err) => {
       console.info(err)
       process.exit(0)
