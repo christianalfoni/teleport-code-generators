@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: JayaKrishnaNamburu/behchmark@master
         with:
-          secret-token: "${{ secrets.BENCHMARK_TOKEN }}"
+          benchmark-path: "pacakges/teleport-test/src/bench.js"
