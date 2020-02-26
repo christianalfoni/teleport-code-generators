@@ -1,3 +1,5 @@
+name: 'Benchmarking'
+
 on: [pull_request]
 
 jobs:
@@ -7,6 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: JayaKrishnaNamburu/behchmark@development
+      - uses: JayaKrishnaNamburu/behchmark@master
         with:
           secret-token: "${{ secrets.BENCHMARK_TOKEN }}"
